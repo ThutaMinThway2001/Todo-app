@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>This is home page</h1>
-    <v-btn depressed small class="indigo darken-4 white--text">
+    <v-btn depressed small class="indigo darken-4 white--text d-none d-sm-flex">
       <v-icon left small>
         email
       </v-icon>
