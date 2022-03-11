@@ -2,7 +2,23 @@
   <div class="dashboard">
     <h1 class="subheading white--text darken-5">Dashboard</h1>
 
-    <v-container fluid class="my-5">
+    <v-container class="my-5">
+      <v-row class="px-3 mb-3">
+        <v-col cols="2">
+          <v-btn small depressed class="grey--text" @click.prevent="filterby('title')" >
+          <v-icon left small> mdi-folder </v-icon>
+          <span class="caption text-lowercase">By project name</span>
+        </v-btn>
+        </v-col>
+
+        <v-col cols="2">
+          <v-btn small depressed class="grey--text" @click.prevent="filterby('person')">
+          <v-icon left small> mdi-folder </v-icon>
+          <span class="caption text-lowercase">By person</span>
+        </v-btn>
+        </v-col>
+      </v-row >
+
       <v-card flat class="px-3 my-4" v-for="project in projects" :key="project.title">
         <v-row row wrap :class="`pa-3 project ${project.status}`">
           <v-col cols="12" md="6">
@@ -40,6 +56,11 @@ export default {
         { title: 'Design video thumbnails', person: 'Ryu', due: '20th Dec 2018', status: 'complete', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
         { title: 'Create a community forum', person: 'Gouken', due: '20th Oct 2018', status: 'overdue', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt consequuntur eos eligendi illum minima adipisci deleniti, dicta mollitia enim explicabo fugiat quidem ducimus praesentium voluptates porro molestias non sequi animi!'},
       ]
+    }
+  },
+  methods:{
+    filterby(value){
+      this.projects.sort((a,b) => a[value] < b[value] ? -1 : 1)
     }
   }
 }
