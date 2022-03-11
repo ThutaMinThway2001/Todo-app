@@ -1,9 +1,9 @@
 <template>
-  <v-app>
-    <v-content>
+  <v-app >
+    <v-main class="grey">
       <Navbar />
       <router-view></router-view>
-    </v-content>
+    </v-main>
     
   </v-app>
 </template>
@@ -23,3 +23,8 @@ export default {
   }),
 };
 </script>
+<style>
+  #app{
+    background-color: lightgray;
+  }
+</style>
