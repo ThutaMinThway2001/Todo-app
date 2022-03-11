@@ -1,20 +1,20 @@
 <template>
-  <div class="home">
+  <div class="dashboard">
+    <h1 class="subheading grey--text">Dashboard</h1>
 
-    <h1>This is dashboard page</h1>
-    <v-btn depressed small class="indigo darken-4 white--text">
-      <v-icon left small>
-        email
-      </v-icon>
-      <span>Home</span>
-    </v-btn>
+    <v-container fluid class="my-5">
+      <v-row>
+        <v-col cols="4" lg="4" xs="12">
+          <v-btn outlined block color="primary">1</v-btn>
+        </v-col>
+        <v-col cols="4" lg="4" xs="12">
+          <v-btn outlined block color="primary">1</v-btn>
+        </v-col>
+        <v-col cols="4" lg="4" xs="12">
+          <v-btn outlined block color="primary">1</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+   
   </div>
 </template>
-
-<script>
-
-export default {
-  components: {
-  }
-}
-</script>
