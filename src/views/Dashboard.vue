@@ -4,19 +4,31 @@
 
     <v-container class="my-5">
       <v-row class="px-3 mb-3">
-        <v-col cols="2">
-          <v-btn small depressed class="grey--text" @click.prevent="filterby('title')" >
-          <v-icon left small> mdi-folder </v-icon>
-          <span class="caption text-lowercase">By project name</span>
-        </v-btn>
-        </v-col>
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-col cols="2" >
+              <v-btn small depressed class="grey--text" @click.prevent="filterby('title')" v-bind="attrs"
+          v-on="on">
+              <v-icon left small> mdi-folder </v-icon>
+              <span class="caption text-lowercase">By project name</span>
+            </v-btn>
+            </v-col>
+          </template>
+          <span>Sort Projects By Names</span>
+        </v-tooltip>
 
-        <v-col cols="2">
-          <v-btn small depressed class="grey--text" @click.prevent="filterby('person')">
-          <v-icon left small> mdi-folder </v-icon>
-          <span class="caption text-lowercase">By person</span>
-        </v-btn>
-        </v-col>
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-col cols="2" >
+              <v-btn small depressed class="grey--text" @click.prevent="filterby('person')" v-bind="attrs"
+          v-on="on">
+              <v-icon left small> mdi-folder </v-icon>
+              <span class="caption text-lowercase">By project person</span>
+            </v-btn>
+            </v-col>
+          </template>
+          <span>Sort Projects By person</span>
+        </v-tooltip>
       </v-row >
 
       <v-card flat class="px-3 my-4" v-for="project in projects" :key="project.title">
