@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 
-    <h1>This is home page</h1>
+    <h1>This is dashboard page</h1>
     <v-btn depressed small class="indigo darken-4 white--text">
       <v-icon left small>
         email
@@ -14,7 +14,6 @@
 <script>
 
 export default {
-  name: 'Home',
   components: {
   }
 }
