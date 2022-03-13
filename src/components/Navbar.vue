@@ -8,12 +8,36 @@
         <span>Ninja</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text color="white">
+
+      <!-- dropdown menu  -->
+      <v-menu offset-y>
+      <template flat v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="grey"
+          dark
+          flat
+          v-bind="attrs"
+          v-on="on"
+        >
+          Menu
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item
+          v-for="(link, index) in links"
+          :key="index"
+        >
+          <v-list-item-title>{{ link.text }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
+      <v-btn text color="grey">
         <span>Sign Out</span>
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
     </v-app-bar>
-
+    <!-- Navigation Drawer  -->
     <v-navigation-drawer app v-model="drawer" class="indigo">
     <v-layout align-center column >
       <v-flex class="mt-5">
@@ -23,7 +47,7 @@
           <p class="white--text subheading mt-1">The Net Ninja</p>
       </v-flex>
     </v-layout>
-     <v-list>
+    <v-list>
         <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
           <v-list-item-action>
             <v-icon class="white--text">{{ link.icon }}</v-icon>
