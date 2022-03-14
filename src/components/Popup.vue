@@ -15,15 +15,15 @@
                 <h2>Add a New Project</h2>
             </v-card-title>
             <v-card-text>
-                <v-form class="px-3">
-                    <v-text-field v-model="title" label="title" prepend-icon="folder"></v-text-field>
-                    <v-textarea v-model="content" label="Information" prepend-icon="edit"></v-textarea>
+                <v-form class="px-3" ref="form">
+                    <v-text-field v-model="title" label="title" prepend-icon="folder" :rules="inputRules"></v-text-field>
+                    <v-textarea v-model="content" label="Information" prepend-icon="edit" :rules="inputRules"></v-textarea>
                         <!-- date  -->
                             <v-menu max-width="290">
                                 <template v-slot:activator="{ on }">
-                                    <v-text-field :value="formattedDate" label="Due date" prepend-icon="mdi-calendar-range" v-on="on"></v-text-field>
+                                    <v-text-field  :rules="inputRules" :value="formattedDate" label="Due date" prepend-icon="mdi-calendar-range" v-on="on"></v-text-field>
                                 </template>
-                                <v-date-picker v-model="due"></v-date-picker>
+                                <v-date-picker v-model="due"> </v-date-picker>
                             </v-menu>
                         <!-- end date  -->
                     <v-spacer></v-spacer>
@@ -44,12 +44,18 @@ export default {
             title: '',
             content: '',
             due: null,
-            menu: false
+            menu: false,
+            inputRules:[
+                v => !!v || 'This field is required',
+                v => v && v.length >= 3 || 'Minimum length is 3 characters.'
+            ]
         }
     },
     methods: {
         submit(){
-            alert('hi there');
+            if(this.$refs.form.validate()){
+                alert('hi there');
+            }
         }
     },
     computed: {
